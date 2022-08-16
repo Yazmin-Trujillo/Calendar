@@ -26,21 +26,25 @@ function App() {
 
   const date = new Date();
   const year = date.getFullYear();
-  const monthNumber = date.getMonth() + 1;
-  const daysOfTheMonth = new Date(year, monthNumber, 0).getDate()
+  const nextMonthNumber = date.getMonth() + 1;
+  const lastDayOfCurrentMonth = new Date(year, nextMonthNumber, 0);
+  const daysOfTheMonth = lastDayOfCurrentMonth.getDate()
   const dayMonth = date.getDate();
   const indexOfDaysOfTheWeek = date.getDay()
 
-  const monthName = months[monthNumber - 1];
+  const monthName = months[nextMonthNumber - 1];
   const dayName = weekdays[indexOfDaysOfTheWeek]
 
-  console.log(monthNumber, dayMonth, year)
+  console.log(nextMonthNumber, dayMonth, year)
   console.log(date.toDateString())  //fecha con formato
   console.log(date.toLocaleDateString()) //fecha sensible a la localización(idioma y formato)
   console.log(monthName)
   console.log('dias del mes', daysOfTheMonth)
   console.log('dia de la semana', indexOfDaysOfTheWeek)
   console.log('dia de la semana', dayName)
+
+  const dayOne= new Date(`${monthName} 01 ${year}`)
+  console.log(dayOne.toDateString())
 
   return (
     <div className="App">
