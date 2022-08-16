@@ -1,13 +1,9 @@
 import React from 'react';
+import { monthNumber, months, year } from './DataService';
 import './NavigationBar.scss';
 
-
-type Props = {
-    year: number,
-    month: string
-}
-
-function NavigationBar({ year, month }: Props) {
+function NavigationBar() {
+    const monthName = months[monthNumber];
 
     return (
         <div className='navigationBar'>
@@ -16,7 +12,7 @@ function NavigationBar({ year, month }: Props) {
                 <button>Next</button>
             </div>
             <div className='calendarHeader'>
-                <p>{year} {month}</p>
+                <p>{year} {monthName}</p>
             </div>
         </div>
     )
