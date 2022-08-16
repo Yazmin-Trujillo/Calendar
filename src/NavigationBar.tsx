@@ -1,5 +1,5 @@
 import React from 'react';
-import { monthNumber, months, year } from './DataService';
+import { monthNumber, months, currentYear } from './DataService';
 import './NavigationBar.scss';
 
 function NavigationBar() {
@@ -12,7 +12,7 @@ function NavigationBar() {
                 <button>Next</button>
             </div>
             <div className='calendarHeader'>
-                <p>{year} {monthName}</p>
+                <p>{currentYear} {monthName}</p>
             </div>
         </div>
     )
