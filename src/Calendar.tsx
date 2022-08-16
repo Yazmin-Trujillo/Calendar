@@ -5,10 +5,10 @@ import { dataService, weekdays, monthNumber, currentYear } from './DataService';
 type Props = {
     year: number,
     month: number,
-    day: number
+    // day?: number
 }
 
-function Calendar({ year, month, day }: Props) {
+function Calendar({ year, month }: Props) {
 
     const calendarGrid = new Array(35);
     for (let i = 0; i < calendarGrid.length; i++) {
