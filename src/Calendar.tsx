@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Calendar.scss';
+import { nanoid } from 'nanoid'
 import { dataService, weekdays, monthNumber, currentYear } from './DataService';
+import { Cell } from './Cell';
+import { CreateAppointmentPanel } from './CreateAppointmentPanel';
 
 type Props = {
     year: number,
@@ -12,7 +15,7 @@ function Calendar({ year, month }: Props) {
 
     const calendarGrid = new Array(35);
     for (let i = 0; i < calendarGrid.length; i++) {
-        calendarGrid[i] = {otherMonth:true}
+        calendarGrid[i] = { otherMonth: true }
     }
 
     const daysInTheMonth = dataService.daysOfTheMonth
@@ -25,10 +28,21 @@ function Calendar({ year, month }: Props) {
             currentDay: currentYear === year && monthNumber === month && (dataService.dayMonth === i + 1)
         }
     }
-    console.log('calendargrid', calendarGrid)
+
+    //${showAddAppointment ? 'invisible' : ''}
+    const [showAddAppointment, setShowAddAppointment] = useState<boolean>(false);
+
+    function onAddAppointmentClose() {
+        setShowAddAppointment(false)
+    }
+
+    function onAddAppointmentOpen() {
+        setShowAddAppointment(true)
+    }
+
     return (
         <div className='calendarWrapper'>
-            <div className='calendar'>
+            <div className={`calendar ${showAddAppointment ? "invisible" : ""}`}>
                 <div className='weekdays'>
                     {weekdays.map((day) => {
                         return <div key={day} className='nameDays'>{day}</div>
@@ -37,14 +51,11 @@ function Calendar({ year, month }: Props) {
                 <div className='daysContainer'>
                     {calendarGrid.map((cell, index) => {
                         if (cell === undefined) return undefined
-                        return <div
-                            key={index}
-                            className={`numberDays ${cell.currentDay ? 'today' : ''} ${cell.otherMonth ? 'otherMonth' : ''}`}>
-                            {cell.num}
-                        </div>
+                        return <Cell cell={cell} key={index} onClick={onAddAppointmentOpen}/>
                     })}
                 </div>
             </div>
+            {showAddAppointment ? <CreateAppointmentPanel onClose={onAddAppointmentClose} /> : ''}
         </div >
     )
 }

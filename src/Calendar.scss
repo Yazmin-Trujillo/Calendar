@@ -6,6 +6,10 @@
         display: flex;
         flex-direction: column;
 
+        &.invisible {
+            // visibility: hidden;
+        }
+
         .weekdays {
             display: flex;
 
@@ -32,6 +36,7 @@
                 &.today {
                     background-color: #65a9d6;
                 }
+
                 &.otherMonth {
                     background-color: gray;
                 }
@@ -63,3 +68,4 @@
 // }
 
 // }
+
