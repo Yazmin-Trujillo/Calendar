@@ -1,29 +1,23 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Calendar.scss';
-import { dataService, weekdays, currentMonthNumber, currentYear } from './DataService';
+import { dataService, weekdays, currentMonthNumber, currentYear } from './lib/DataService';
 import { Cell } from './Cell';
-import { CreateAppointmentPanel } from './CreateAppointmentPanel';
-import { CalendarDay } from './Models';
-import { Repository } from './Repository';
+import { CalendarDay } from './lib/Models';
 
 type Props = {
     year: number,
     month: number,
-    // day: number
 }
 
 function Calendar({ year, month }: Props) {
     const calendarGrid: CalendarDay[] = new Array(35);
     for (let i = 0; i < calendarGrid.length; i++) {
         calendarGrid[i] = {
+            year: 0,
+            month: 0,
+            day: 0,
             otherMonth: true,
-            day: '',
             currentDay: false,
-            appointment: {
-                id: '',
-                time: '',
-                name: ''
-            }
         }
     }
 
@@ -33,34 +27,17 @@ function Calendar({ year, month }: Props) {
     for (let i = 0; i < daysInTheMonth; i++) {
         // if()
         calendarGrid[i + firstDay] = {
-            day: (dataService.dayOne + i).toLocaleString(undefined, { minimumIntegerDigits: 2 }),
+            year: year,
+            month: month,
+            day: (dataService.dayOne + i),
             currentDay: currentYear === year && currentMonthNumber === month && (dataService.dayMonth === dataService.dayOne + i),
             otherMonth: false,
-            appointment:{
-                id:'',
-                time:'',
-                name:'aqui va la cita'
-            }
         }
     }
-
-    const appointments = Repository.readItem()
-    console.log('quehay al leer',appointments)
-
-    //${showAddAppointment ? 'invisible' : ''}
-    const [showAddAppointment, setShowAddAppointment] = useState<boolean>(false);
-
-    function onAddAppointmentClose() {
-        setShowAddAppointment(false)
-    }
-
-    function onAddAppointmentOpen() {
-        setShowAddAppointment(true)
-    }
-
+   
     return (
         <div className='calendarWrapper'>
-            <div className={`calendar ${showAddAppointment ? "invisible" : ""}`}>
+            <div className='calendar'>
                 <div className='weekdays'>
                     {weekdays.map((day) => {
                         return <div key={day} className='nameDays'>{day}</div>
@@ -69,11 +46,10 @@ function Calendar({ year, month }: Props) {
                 <div className='daysContainer'>
                     {calendarGrid.map((cell, index) => {
                         if (cell === undefined) return undefined
-                        return <Cell cell={cell} key={index} openCell={onAddAppointmentOpen} />
+                        return <Cell cell={cell} key={index} />
                     })}
                 </div>
             </div>
-            {showAddAppointment ? <CreateAppointmentPanel onClose={onAddAppointmentClose} /> : ''}
         </div >
     )
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { currentMonthNumber, months, currentYear } from './DataService';
+import { currentMonthNumber, months, currentYear } from './lib/DataService';
 import './NavigationBar.scss';
 
 function NavigationBar() {

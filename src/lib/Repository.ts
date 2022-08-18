@@ -41,6 +41,18 @@ export const Repository = {
 
     deleteStorage: () => {
         localStorage.clear()
+    },
+
+    findByDay: (year: number, month: number, day: number): Appointment[] => {
+        const appointments = getSavedAppointments()
+        return appointments.filter(ele => {
+            const date = new Date(Date.parse(ele.time))
+            if (date.getFullYear() === year && date.getMonth() === month && date.getDate() === day) {
+                return true
+            }
+            return false
+        })
+
     }
 
 }

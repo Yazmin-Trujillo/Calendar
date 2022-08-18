@@ -2,6 +2,15 @@ export const date = new Date()
 console.log('date', date.toISOString())
 export const currentYear = date.getFullYear()
 export const currentMonthNumber = date.getMonth()
+
+export function updateDate(day: number) {
+    console.log('fecha', date)
+    console.log('day?', date.setDate(day))
+       const otherDay= new Date(date)
+       otherDay.setDate(day);
+       return otherDay
+    }
+
 export const weekdays = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
 export const months = [
     'January',
@@ -25,6 +34,3 @@ export const dataService = {
     // nextMonthNumber : date.getMonth() + 1,
     indexOfDaysOfTheWeek: date.getDay(),
 }
-
-// console.log(date.toDateString())  //fecha con formato
-// console.log(date.toLocaleDateString()) //fecha sensible a la localización(idioma y formato)

@@ -3,7 +3,7 @@ import './App.css';
 import NavigationBar from './NavigationBar';
 import Calendar from './Calendar';
 // import { currentYear, dataService, monthNumber } from './DataService';
-import { currentYear, dataService, currentMonthNumber } from './DataService';
+import { currentYear, dataService, currentMonthNumber } from './lib/DataService';
 
 
 function App() {

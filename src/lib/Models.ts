@@ -2,15 +2,18 @@ export interface Appointment {
     // "time":"2021-05-14T18:45:00+00:00",
     // "name":"Coffee Break"
     id: string
-    time: string
+    time: string 
     name: string
 }
 
 export interface CalendarDay{
-    day: string
+    year:number
+    month: number
+    day: number
+    
     currentDay: boolean
     otherMonth: boolean
-    appointment: Appointment
+    // appointment: Appointment
 }
 
 // export interface Week {

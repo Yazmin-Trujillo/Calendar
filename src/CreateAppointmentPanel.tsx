@@ -1,33 +1,37 @@
 import React, { useState } from 'react';
 import './CreateAppointmentPanel.scss';
 import { nanoid } from 'nanoid'
-import { Appointment } from './Models';
-import { Repository } from './Repository';
-import { date } from './DataService';
+import { Appointment } from './lib/Models';
+import { Repository } from './lib/Repository';
+import { date } from './lib/DataService';
 
 
 type Props = {
+    year: number,
+    month: number,
+    day: number,
     onClose: () => void
 }
 
-export function CreateAppointmentPanel({ onClose }: Props) {
+export function CreateAppointmentPanel({ year, month, day, onClose }: Props) {
     const [appointmentName, setAppointmentName] = useState<string>('');
     const [titleDate, setTitleDate] = useState<string>('');
 
-    const appointments:Appointment[] = []
+    const appointments: Appointment[] = []
 
     function closeAppointmentPanel() {
+
         if (appointmentName !== '') {
+            // let date = new Date(1995, 11, 17)
             const appointment: Appointment = {
                 id: nanoid(),
-                time: date.toISOString(),
+                time: new Date(year, month, day).toUTCString(),
                 name: appointmentName
             }
             appointments.push(appointment)
             Repository.addItem(appointment)
             console.log('se guardará la nota')
         }
-        // setAppointment('');
         onClose()
     }
     return (
