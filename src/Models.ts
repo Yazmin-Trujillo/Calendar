@@ -7,9 +7,10 @@ export interface Appointment {
 }
 
 export interface CalendarDay{
-    num: string
+    day: string
     currentDay: boolean
     otherMonth: boolean
+    appointment: Appointment
 }
 
 // export interface Week {

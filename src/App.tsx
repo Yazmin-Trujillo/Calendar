@@ -3,7 +3,7 @@ import './App.css';
 import NavigationBar from './NavigationBar';
 import Calendar from './Calendar';
 // import { currentYear, dataService, monthNumber } from './DataService';
-import { currentYear, monthNumber } from './DataService';
+import { currentYear, dataService, currentMonthNumber } from './DataService';
 
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
     <div className="App">
       <NavigationBar />
       {/* <NavigationBar onChange="setMontAndYEar()" /> */}
-      <Calendar year={currentYear} month={monthNumber}/>
+      <Calendar year={currentYear} month={currentMonthNumber} />
     </div>
   );
 }

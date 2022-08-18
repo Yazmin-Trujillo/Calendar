@@ -1,29 +1,44 @@
 import React, { useState } from 'react';
 import './CreateAppointmentPanel.scss';
+import { nanoid } from 'nanoid'
+import { Appointment } from './Models';
+import { Repository } from './Repository';
+import { date } from './DataService';
 
 
 type Props = {
     onClose: () => void
 }
 
-export function CreateAppointmentPanel({ onClose: propsOnClick }: Props) {
-    const [appointment, setAppointment] = useState<string>('');
+export function CreateAppointmentPanel({ onClose }: Props) {
+    const [appointmentName, setAppointmentName] = useState<string>('');
+    const [titleDate, setTitleDate] = useState<string>('');
+
+    const appointments:Appointment[] = []
 
     function closeAppointmentPanel() {
-        if (appointment !== '') {
+        if (appointmentName !== '') {
+            const appointment: Appointment = {
+                id: nanoid(),
+                time: date.toISOString(),
+                name: appointmentName
+            }
+            appointments.push(appointment)
+            Repository.addItem(appointment)
             console.log('se guardará la nota')
-        } 
+        }
         // setAppointment('');
-        propsOnClick()
+        onClose()
     }
     return (
         <div className='backdrop'>
             <div className='contents'>
                 <div className='appointment'>
-                    <p>evento nuevo hoy, evento nuevo mañana, evento nuevo proximo xxx, evento nuevo el 22 de marzo</p>
+                    <p>evento nuevo {titleDate}</p>
+                    {/* <p>evento nuevo hoy, evento nuevo mañana, evento nuevo proximo xxx, evento nuevo el 22 de marzo</p> */}
                     <input
-                     placeholder='aqui va lo que quieres guardar' 
-                     onChange={event => setAppointment(event.target.value)}/>
+                        placeholder='aqui va lo que quieres guardar'
+                        onChange={event => setAppointmentName(event.target.value)} />
                 </div>
                 <div>
                     <button onClick={() => closeAppointmentPanel()}>CERRAR</button>

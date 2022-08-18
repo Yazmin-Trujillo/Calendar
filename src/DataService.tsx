@@ -1,6 +1,7 @@
-const date = new Date()
+export const date = new Date()
+console.log('date', date.toISOString())
 export const currentYear = date.getFullYear()
-export const monthNumber = date.getMonth()
+export const currentMonthNumber = date.getMonth()
 export const weekdays = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
 export const months = [
     'January',
@@ -18,8 +19,8 @@ export const months = [
 
 export const dataService = {
 
-    daysOfTheMonth: new Date(currentYear, monthNumber, 0).getDate(),
-    dayOne: new Date(currentYear, monthNumber, 1).getDay(),
+    daysOfTheMonth: new Date(currentYear, currentMonthNumber, 0).getDate(),
+    dayOne: new Date(currentYear, currentMonthNumber, 1).getDay(),
     dayMonth: date.getDate(),
     // nextMonthNumber : date.getMonth() + 1,
     indexOfDaysOfTheWeek: date.getDay(),

@@ -1,21 +1,30 @@
 import React, { useState } from 'react';
 import './Calendar.scss';
-import { nanoid } from 'nanoid'
-import { dataService, weekdays, monthNumber, currentYear } from './DataService';
+import { dataService, weekdays, currentMonthNumber, currentYear } from './DataService';
 import { Cell } from './Cell';
 import { CreateAppointmentPanel } from './CreateAppointmentPanel';
+import { CalendarDay } from './Models';
+import { Repository } from './Repository';
 
 type Props = {
     year: number,
     month: number,
-    // day?: number
+    // day: number
 }
 
 function Calendar({ year, month }: Props) {
-
-    const calendarGrid = new Array(35);
+    const calendarGrid: CalendarDay[] = new Array(35);
     for (let i = 0; i < calendarGrid.length; i++) {
-        calendarGrid[i] = { otherMonth: true }
+        calendarGrid[i] = {
+            otherMonth: true,
+            day: '',
+            currentDay: false,
+            appointment: {
+                id: '',
+                time: '',
+                name: ''
+            }
+        }
     }
 
     const daysInTheMonth = dataService.daysOfTheMonth
@@ -24,10 +33,19 @@ function Calendar({ year, month }: Props) {
     for (let i = 0; i < daysInTheMonth; i++) {
         // if()
         calendarGrid[i + firstDay] = {
-            num: (i + 1).toLocaleString(undefined, { minimumIntegerDigits: 2 }),
-            currentDay: currentYear === year && monthNumber === month && (dataService.dayMonth === i + 1)
+            day: (dataService.dayOne + i).toLocaleString(undefined, { minimumIntegerDigits: 2 }),
+            currentDay: currentYear === year && currentMonthNumber === month && (dataService.dayMonth === dataService.dayOne + i),
+            otherMonth: false,
+            appointment:{
+                id:'',
+                time:'',
+                name:'aqui va la cita'
+            }
         }
     }
+
+    const appointments = Repository.readItem()
+    console.log('quehay al leer',appointments)
 
     //${showAddAppointment ? 'invisible' : ''}
     const [showAddAppointment, setShowAddAppointment] = useState<boolean>(false);
@@ -51,7 +69,7 @@ function Calendar({ year, month }: Props) {
                 <div className='daysContainer'>
                     {calendarGrid.map((cell, index) => {
                         if (cell === undefined) return undefined
-                        return <Cell cell={cell} key={index} onClick={onAddAppointmentOpen}/>
+                        return <Cell cell={cell} key={index} openCell={onAddAppointmentOpen} />
                     })}
                 </div>
             </div>

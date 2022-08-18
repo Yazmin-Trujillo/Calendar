@@ -1,9 +1,9 @@
 import React from 'react';
-import { monthNumber, months, currentYear } from './DataService';
+import { currentMonthNumber, months, currentYear } from './DataService';
 import './NavigationBar.scss';
 
 function NavigationBar() {
-    const monthName = months[monthNumber];
+    const monthName = months[currentMonthNumber];
 
     return (
         <div className='navigationBar'>

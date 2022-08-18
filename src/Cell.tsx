@@ -1,25 +1,30 @@
 import React, { useState } from 'react';
-import { CalendarDay } from './Extra';
+import { CalendarDay } from './Models';
 
 type Props = {
     cell: CalendarDay
-    onClick: () => void,
+    openCell: () => void,
 }
 
-export function Cell({ cell, onClick: propsOnClick }: Props) {
+export function Cell({ cell, openCell }: Props) {
     // const handleClick = (event:Event) => {
     //     if (event.detail === 2) {
     //         propsOnClick()
     //     }
     // };
 
-    return (
 
-        <div
-            className={`numberDays ${cell.currentDay ? 'today' : ''} ${cell.otherMonth ? 'otherMonth' : ''} `}
-            onClick={() => propsOnClick()}
-        >
-            {cell.num}
-        </div>
+    return (
+        <div className={`numberDays ${cell.currentDay ? 'today' : ''} ${cell.otherMonth ? 'otherMonth' : ''} `}
+            onClick={() => openCell()}>
+            <div>
+
+                {cell.day}
+            </div>
+            <div>
+                {cell.appointment.name}
+            </div>
+        </div >
+
     )
 }
