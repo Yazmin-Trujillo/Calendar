@@ -17,15 +17,15 @@ export const Repository = {
         const savedAppointments = getSavedAppointments()
         const existing = savedAppointments.find(a => a.id == appoinment.id)
         if (existing) {
-            // TODO: update values
+            //  update values
             existing.name = appoinment.name
             existing.time = appoinment.time
         } else {
-            //TODO: add appoinment to array
+            // add appoinment to array
             savedAppointments.push(appoinment)
         }
 
-        //TODO: save updated array  
+        // save updated array  
         localStorage.setItem(APPOINTMENT_KEY, JSON.stringify(savedAppointments))
 
     },
