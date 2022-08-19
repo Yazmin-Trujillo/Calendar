@@ -9,6 +9,11 @@ type Props = {
 
 export function Cell({ cell }: Props) {
     const [showAddAppointment, setShowAddAppointment] = useState<boolean>(false);
+    const [appointments, setAppointments] = useState<Appointment[]>([]);
+
+    useEffect(() => {
+        setAppointments(Repository.findByDay(cell.year, cell.month, cell.day))
+    }, [])
 
     function onAddAppointmentClose() {
         setShowAddAppointment(false)
@@ -17,26 +22,14 @@ export function Cell({ cell }: Props) {
 
     function onAddAppointmentOpen() {
         setShowAddAppointment(true)
-
     }
-
-    // openCell={() => onAddAppointmentOpen(cell.day)} 
-    // const handleClick = (event:Event) => {
-    //     if (event.detail === 2) {
-    //         propsOnClick()
-    //     }
-    // };
-    const [appointments, setAppointments] = useState<Appointment[]>([]);
-    useEffect(() => {
-        setAppointments(Repository.findByDay(cell.year, cell.month, cell.day))
-    }, [])
 
     return (
         <>
             <div className={`numberDays ${cell.currentDay ? 'today' : ''} ${cell.otherMonth ? 'otherMonth' : ''} `}
                 onClick={() => onAddAppointmentOpen()}>
                 <div>
-                    {cell.day}
+                    {cell.year}/{cell.month}/{cell.day}
                 </div>
                 <div>
                     {appointments.map((appointment) => {
@@ -46,7 +39,5 @@ export function Cell({ cell }: Props) {
             </div >
             {showAddAppointment ? <CreateAppointmentPanel year={cell.year} month={cell.month} day={cell.day} onClose={onAddAppointmentClose} /> : ''}
         </>
-
-
     )
 }

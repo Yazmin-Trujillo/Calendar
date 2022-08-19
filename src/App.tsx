@@ -3,8 +3,6 @@ import './App.css';
 import NavigationBar from './NavigationBar';
 import Calendar from './Calendar';
 // import { currentYear, dataService, monthNumber } from './DataService';
-import { currentYear, dataService, currentMonthNumber } from './lib/DataService';
-
 
 function App() {
   // const [year, setYear] = useState(currentYear);
@@ -20,7 +18,7 @@ function App() {
     <div className="App">
       <NavigationBar />
       {/* <NavigationBar onChange="setMontAndYEar()" /> */}
-      <Calendar year={currentYear} month={currentMonthNumber} />
+      <Calendar year={2021} month={9} />
     </div>
   );
 }
