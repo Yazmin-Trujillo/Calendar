@@ -65,3 +65,21 @@
 
 // }
 
+
+.navigationBar {
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+
+    .buttons {
+        width: 50%;
+        text-align: start;
+        align-self: center;
+    }
+
+    .calendarHeader {
+        width: 50%;
+        text-align: start;
+    }
+
+}

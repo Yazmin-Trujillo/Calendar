@@ -5,7 +5,7 @@ export const calendarService = {
     getCalendarDays: (year: number, month: number) => {
         const today = new Date()
         const dayOne = new Date(year, month, 1).getDay()
-        const daysInTheMonth = new Date(year, month, 0).getDate()
+        const daysInTheMonth = new Date(year, month+1, 0).getDate()
         const calendarGrid: CalendarDay[] = new Array(35);
 
         for (let i = 0; i < calendarGrid.length; i++) {

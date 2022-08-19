@@ -29,7 +29,7 @@ export function Cell({ cell }: Props) {
             <div className={`numberDays ${cell.currentDay ? 'today' : ''} ${cell.otherMonth ? 'otherMonth' : ''} `}
                 onClick={() => onAddAppointmentOpen()}>
                 <div>
-                    {cell.year}/{cell.month}/{cell.day}
+                    {cell.day}
                 </div>
                 <div>
                     {appointments.map((appointment) => {
