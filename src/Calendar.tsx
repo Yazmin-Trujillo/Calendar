@@ -26,9 +26,9 @@ function Calendar({ year, month }: Props) {
                     })}
                 </div>
                 <div className='daysContainer'>
-                    {calendarDays.map((cell, index) => {
+                    {calendarDays.map((cell) => {
                         if (cell === undefined) return undefined
-                        return <Cell cell={cell} key={index} />
+                        return <Cell cell={cell} key={`${cell.year}${cell.month}${cell.day}`} />
                     })}
                 </div>
             </div>
