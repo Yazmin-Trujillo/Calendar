@@ -10,8 +10,6 @@
         .weekdays {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            // width: 100vw;
-
 
             .nameDays {
                 flex: 1;
@@ -26,12 +24,10 @@
         .daysContainer {
             justify-items: end;
             display: grid;
-            // width: 100vw;
-            // height: 100vh;
-            grid-template-columns: repeat(7, 1fr);
+            grid-template-columns: repeat(7, minmax(0, 1fr));
             grid-auto-rows: minmax(0, 1fr);
             flex: 1 1 0;
-           
+
 
             .numberDays {
                 width: 100%;
@@ -40,38 +36,14 @@
 
 
                 &.today {
-                    background-color: #65a9d6;
+                    background-color: #92e9f9;
                 }
 
                 &.otherMonth {
-                    background-color: #bbbaba;
+                    background-color: #7180AC44;
                     border: 1px solid #959595;
                 }
             }
         }
     }
 }
-
-
-// .calendar {
-//     .cells {
-//         display: grid;
-//         grid-template-columns: repeat(7, 1fr);
-//         .title {
-//             text-transform: capitalize;
-//             font-weight: bold;
-//         }
-//         .day {
-//             aspect-ratio: 1/1;
-//         }
-//     }
-// .weekdays {
-//     display: grid;
-//     grid-template-columns: repeat(7, 1fr);
-// }
-// .days-container {
-//     display: grid;
-//     grid-template-columns: repeat(7, 1fr);
-// }
-
-// }

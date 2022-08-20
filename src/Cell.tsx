@@ -30,11 +30,11 @@ export function Cell({ cell }: Props) {
             <div className={`numberDays ${cell.currentDay ? 'today' : ''} ${cell.otherMonth ? 'otherMonth' : ''} `}
                 onClick={() => onAddAppointmentOpen()}>
                 <div className='day'>
-                    {(cell.day).toLocaleString(undefined,{minimumIntegerDigits: 2})}
+                    {(cell.day).toLocaleString(undefined, { minimumIntegerDigits: 2 })}
                 </div>
-                <div className='appointment'>
+                <div className='appointments'>
                     {appointments.map((appointment) => {
-                        return <div key={appointment.id} >{appointment.name}</div>
+                        return <div className='appointment' key={appointment.id} >{appointment.name}</div>
                     })}
                 </div>
             </div >

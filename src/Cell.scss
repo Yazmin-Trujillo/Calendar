@@ -1,13 +1,27 @@
 .numberDays {
-    padding: 0.4rem;
+    padding: 0.15rem;
     box-sizing: border-box;
 
     .day {
         font-size: 1.4rem;
     }
 
-    .appointment {
+    .appointments {
         text-align: start;
-        margin-left: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: .25rem;
+
+        .appointment {
+            background-color: #FCB07E;
+            padding: .15rem .3rem;
+            border-radius: .15rem;
+            //para que el texto sea en una linea
+            white-space: nowrap;
+            //para evitar el desbordamiento
+            overflow: hidden;
+            //para mostrar 3 puntos seguidos
+            text-overflow: ellipsis;
+        }
     }
 }
