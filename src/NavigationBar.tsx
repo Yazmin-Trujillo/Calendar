@@ -36,7 +36,7 @@ function NavigationBar({ yearChange, monthChange }: Props) {
                 <button onClick={() => next()}>Next</button>
             </div>
             <div className='calendarHeader'>
-                <p>{year} {months[month]}</p>
+                <p className='calendarTitle'>{year} {months[month]}</p>
             </div>
         </div>
     )

@@ -1,3 +1,13 @@
-.calendarWrapper{
-    
+.numberDays {
+    padding: 0.4rem;
+    box-sizing: border-box;
+
+    .day {
+        font-size: 1.4rem;
+    }
+
+    .appointment {
+        text-align: start;
+        margin-left: 0.5rem;
+    }
 }

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { CreateAppointmentPanel } from './CreateAppointmentPanel';
 import { Appointment, CalendarDay } from './lib/Models';
 import { Repository } from './lib/Repository';
+import './Cell.scss';
 
 type Props = {
     cell: CalendarDay
@@ -28,10 +29,10 @@ export function Cell({ cell }: Props) {
         <>
             <div className={`numberDays ${cell.currentDay ? 'today' : ''} ${cell.otherMonth ? 'otherMonth' : ''} `}
                 onClick={() => onAddAppointmentOpen()}>
-                <div>
-                    {cell.day}
+                <div className='day'>
+                    {(cell.day).toLocaleString(undefined,{minimumIntegerDigits: 2})}
                 </div>
-                <div>
+                <div className='appointment'>
                     {appointments.map((appointment) => {
                         return <div key={appointment.id} >{appointment.name}</div>
                     })}
