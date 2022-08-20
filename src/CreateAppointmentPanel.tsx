@@ -13,7 +13,7 @@ type Props = {
 
 export function CreateAppointmentPanel({ year, month, day, onClose }: Props) {
     const [appointmentName, setAppointmentName] = useState<string>('');
-    const [titleDate, setTitleDate] = useState<string>('');
+    // const [titleDate, setTitleDate] = useState<string>('');
 
     function closeAppointmentPanel() {
 
@@ -31,7 +31,7 @@ export function CreateAppointmentPanel({ year, month, day, onClose }: Props) {
         <div className='backdrop'>
             <div className='contents'>
                 <div className='appointment'>
-                    <p>evento nuevo {titleDate}</p>
+                    <p>Evento nuevo</p>
                     {/* <p>evento nuevo hoy, evento nuevo mañana, evento nuevo proximo xxx, evento nuevo el 22 de marzo</p> */}
                     <input
                         placeholder='aqui va lo que quieres guardar'
