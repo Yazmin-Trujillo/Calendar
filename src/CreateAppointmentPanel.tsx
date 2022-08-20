@@ -31,14 +31,14 @@ export function CreateAppointmentPanel({ year, month, day, onClose }: Props) {
         <div className='backdrop'>
             <div className='contents'>
                 <div className='appointment'>
-                    <p>Evento nuevo</p>
+                    <p>New event</p>
                     {/* <p>evento nuevo hoy, evento nuevo mañana, evento nuevo proximo xxx, evento nuevo el 22 de marzo</p> */}
                     <input
-                        placeholder='aqui va lo que quieres guardar'
+                        placeholder='Appointment'
                         onChange={event => setAppointmentName(event.target.value)} />
                 </div>
                 <div>
-                    <button onClick={() => closeAppointmentPanel()}>CERRAR</button>
+                    <button className='saveAppointment' onClick={() => closeAppointmentPanel()}>CLOSE</button>
                 </div>
             </div>
         </div>
