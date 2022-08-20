@@ -1,6 +1,12 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c3c80cd7-011a-4217-9ca7-295d6e79188b/deploy-status)](https://app.netlify.com/sites/yaz-calendar/deploys)
+
 # Altomobile React Challenge Yazmin Trujillo
 
 
+
+## Demo
+
+https://yaz-calendar.netlify.app/
 
 ## Getting started
 
