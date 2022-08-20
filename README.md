@@ -1,6 +1,10 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c3c80cd7-011a-4217-9ca7-295d6e79188b/deploy-status)](https://app.netlify.com/sites/yaz-calendar/deploys)
+
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Demo
+
+https://yaz-calendar.netlify.app/
 
 ## Available Scripts
 
