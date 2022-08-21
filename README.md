@@ -17,6 +17,10 @@ La aplicación esta diseñada para escritorio
 
 Puedes verlo desplegado en [Netlify](https://yaz-calendar.netlify.app/)
 
+# React Jest issue when running test
+
+Using create-react-app, jest throws `Cannot use import statement outside a module error`. Solution found in https://github.com/facebook/create-react-app/issues/9938#issuecomment-743701100
+
 
 ## Getting started
 
