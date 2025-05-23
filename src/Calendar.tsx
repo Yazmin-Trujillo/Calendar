@@ -12,7 +12,7 @@ type Props = {
 
 function Calendar({ year, month }: Props) {
     const [calendarDays, setCalendarDays] = useState<CalendarDay[]>([])
-
+    
     useEffect(() => {
         setCalendarDays(calendarService.getCalendarDays(year, month))
     }, [year, month])

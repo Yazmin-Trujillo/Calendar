@@ -7,7 +7,7 @@ export const calendarService = {
         const calendarDays: CalendarDay[] = [];
 
         addPreviousMonth(year, month, dayOneIndex, calendarDays);
-        addCurrentMonth(year, month, calendarDays, dayOneIndex);
+        addCurrentMonth(year, month, calendarDays);
         addNextMonth(year, month, calendarDays);
 
         return calendarDays;
@@ -30,7 +30,7 @@ function addPreviousMonth(year: number, month: number, dayOneIndex: number, cale
     }
 }
 
-function addCurrentMonth(year: number, month: number, calendarDays: CalendarDay[], dayOneIndex: number) {
+function addCurrentMonth(year: number, month: number, calendarDays: CalendarDay[]) {
     const daysInTheMonth = new Date(year, month + 1, 0).getDate();
     const today = new Date();
 
@@ -40,7 +40,7 @@ function addCurrentMonth(year: number, month: number, calendarDays: CalendarDay[
             month: month,
             day: (i + 1),
             otherMonth: false,
-            currentDay: today.getFullYear() === year && today.getMonth() === month && today.getDate() === dayOneIndex + i,
+            currentDay: today.getFullYear() === year && today.getMonth() === month && today.getDate() === i+1,
         });
     }
 }

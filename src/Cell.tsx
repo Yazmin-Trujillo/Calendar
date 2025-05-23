@@ -9,6 +9,7 @@ type Props = {
 }
 
 export function Cell({ cell }: Props) {
+    
     const [showAddAppointment, setShowAddAppointment] = useState<boolean>(false);
     const [appointments, setAppointments] = useState<Appointment[]>([]);
 

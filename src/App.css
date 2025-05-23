@@ -1,7 +1,17 @@
 .App {
   text-align: center;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  color: #1e1e1e
+  flex: 1;
+  color: #000000;
+
+  .content {
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 1rem;
+   }
+
+
 }

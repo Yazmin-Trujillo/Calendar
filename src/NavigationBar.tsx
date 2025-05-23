@@ -31,13 +31,17 @@ function NavigationBar({ yearChange, monthChange }: Props) {
 
     return (
         <div className='navigationBar'>
-            <div className='buttons'>
-                <button  data-testid="buttonBack" onClick={() => back()}>Back</button>
-                <button  data-testid="buttonNext" onClick={() => next()}>Next</button>
-            </div>
+            {/* <div className='buttons right'> */}
+                <button className='right' data-testid="buttonBack" onClick={() => back()}>Back</button>
+                {/* <button  data-testid="buttonNext" onClick={() => next()}>Next</button> */}
+            {/* </div> */}
             <div className='calendarHeader'>
                 <p className='calendarTitle'>{year} {months[month]}</p>
             </div>
+            {/* <div className='buttons left'> */}
+                {/* <button  data-testid="buttonBack" onClick={() => back()}>Back</button> */}
+                <button className='left'  data-testid="buttonNext" onClick={() => next()}>Next</button>
+            {/* </div> */}
         </div>
     )
 }

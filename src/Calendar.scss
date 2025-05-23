@@ -1,23 +1,26 @@
 .calendarWrapper {
-    flex: 1 1 0;
+    display: flex;
+    flex: 1;
 
     .calendar {
-        height: 100%;
+        flex: 1;
         display: flex;
         flex-direction: column;
-        margin: 0 1rem;
 
         .weekdays {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
+            border: 1px solid #000000;
 
             .nameDays {
                 flex: 1;
-                border: 1px solid #959595;
+                border: 1px solid white;
                 text-transform: capitalize;
                 font-weight: bold;
                 height: fit-content;
                 padding: 0.2rem;
+                color: white;
+                background-color: #000000;
             }
         }
 
@@ -27,11 +30,12 @@
             grid-template-columns: repeat(7, minmax(0, 1fr));
             grid-auto-rows: minmax(0, 1fr);
             flex: 1 1 0;
-
+            border: 1px solid #000000;
+            // border-top: 2px solid yellow;
 
             .numberDays {
                 width: 100%;
-                border: 1px solid #959595;
+                border: 1px solid #000000;
                 text-align: end;
 
 
@@ -40,8 +44,9 @@
                 }
 
                 &.otherMonth {
-                    background-color: #7180AC44;
-                    border: 1px solid #959595;
+                    background-color: #4a4a4a44;
+                    border: 1px solid #000000;
+                    color: #333333;
                 }
             }
         }

@@ -10,8 +10,10 @@ function App() {
 
   return (
     <div className="App">
+      <div className='content'>
       <NavigationBar yearChange={setYear} monthChange={setMonth}/>
       <Calendar year={year} month={month} />
+      </div>
     </div>
   );
 }
